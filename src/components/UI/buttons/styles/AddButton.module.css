@@ -1,10 +1,10 @@
 @font-face {
     font-family: button-font;
-    src: url(../../../../fonts/button-font.ttf);
+    src: url(../../fonts/button-font.ttf);
 }
 
-.deleteButton {
-  background-color: #f6685e;
+.addButton {
+  background-color: #6fbed7;
   border: none;
   color: white;
   font-size: 16px;
@@ -14,7 +14,7 @@
   height: 50px;
 }
 
-.deleteButton:hover {
+.addButton:hover {
   box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-  background-color: #f77b72;
+  background-color: #81c6dc;
 }

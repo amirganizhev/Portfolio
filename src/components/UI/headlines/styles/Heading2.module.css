@@ -1,0 +1,9 @@
+@font-face {
+    font-family: heading-font;
+    src: url(../../fonts/heading-font.ttf);
+}
+
+.heading2 {
+  font-family: heading-font;
+  font-size: 48px;
+}
