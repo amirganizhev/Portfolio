@@ -1,5 +1,6 @@
 Установлено:
 1) react-transition-group;
+2) react-router-dom;
 
 /--------------------------------------------/
 import React from 'react';
