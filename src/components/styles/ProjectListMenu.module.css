@@ -1,0 +1,25 @@
+.projectListMenu {
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0px 10px 12px 0px rgba(34, 60, 80, 0.2);
+  margin-bottom: 25px;
+}
+
+.projectListHeader {
+  text-align: center;
+}
+
+.linksProjects {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-right: 15px;
+}
+
+.linksProjects a {
+  margin-right: 25px;
+  margin-bottom: 25px;
+  border: 1px solid #6fbed7;
+  padding: 10px;
+}
