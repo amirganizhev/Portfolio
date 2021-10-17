@@ -17,9 +17,10 @@
   margin-right: 15px;
 }
 
-.linksProjects a {
+.linkProject {
   margin-right: 25px;
   margin-bottom: 25px;
   border: 1px solid #6fbed7;
   padding: 10px;
+  text-decoration: none;
 }

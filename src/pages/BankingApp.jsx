@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NormalText from '../components/UI/texts/NormalText'
+import NormalText from '../components/UI/texts/NormalText';
 
 const BankingApp = () => {
 

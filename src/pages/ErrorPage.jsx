@@ -2,14 +2,14 @@ import React from 'react';
 
 import NormalText from '../components/UI/texts/NormalText';
 
-const PortfolioDescription = () => {
+const BankingApp = () => {
 
   return (
     <div>
-      <NormalText>PortfolioDescription</NormalText>
+      <NormalText>ErrorPage</NormalText>
     </div>
   )
 
 }
 
-export default PortfolioDescription;
+export default BankingApp;
