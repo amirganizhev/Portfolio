@@ -1,12 +1,17 @@
 import React from 'react';
+import classes from './styles/PortfolioDescription.module.css';
 
-import NormalText from '../components/UI/texts/NormalText';
+import AddButton from '../components/UI/buttons/AddButton';
+import DeleteButton from '../components/UI/buttons/DeleteButton';
+import SearchButton from '../components/UI/buttons/SearchButton';
 
 const PortfolioDescription = () => {
 
   return (
     <div>
-      <NormalText>PortfolioDescription</NormalText>
+      <AddButton>Add</AddButton>
+      <DeleteButton>Delete</DeleteButton>
+      <SearchButton>Search</SearchButton>
     </div>
   )
 

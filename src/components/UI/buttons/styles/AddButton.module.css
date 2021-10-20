@@ -1,6 +1,6 @@
 @font-face {
-    font-family: button-font;
-    src: url(../../fonts/button-font.ttf);
+    font-family: button-input-font;
+    src: url(../../fonts/button-input-font.ttf);
 }
 
 .addButton {
@@ -9,7 +9,7 @@
   color: white;
   font-size: 16px;
   cursor: pointer;
-  font-family: button-font;
+  font-family: button-input-font;
   width: 200px;
   height: 50px;
 }

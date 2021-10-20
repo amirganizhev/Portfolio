@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Link, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter, Link} from 'react-router-dom';
 import classes from './styles/ProjectListMenu.module.css';
 
 import AppRouter from './AppRouter';
@@ -18,7 +18,7 @@ const ProjectListMenu = (props) => {
         <div className={classes.linksProjects}>
           <Link to='/portfolioDescription' className={classes.linkProject}><Anchor>Описание портфолио</Anchor></Link>
           <Link to='/bankingApp' className={classes.linkProject}><Anchor>Банковское приложение</Anchor></Link>
-          <Link to='/' className={classes.linkProject}><Anchor>Погодное приложение</Anchor></Link>
+          <Link to='/weatherApp' className={classes.linkProject}><Anchor>Погодное приложение</Anchor></Link>
         </div>
       </div>
       <AppRouter />

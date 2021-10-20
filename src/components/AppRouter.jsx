@@ -1,9 +1,10 @@
 import React from 'react';
-import {BrowserRouter, Route, Link, Switch, Redirect} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
+import ErrorPage from '../pages/ErrorPage';
 import PortfolioDescription from '../pages/PortfolioDescription';
 import BankingApp from '../pages/BankingApp';
-import ErrorPage from '../pages/ErrorPage';
+import WeatherApp from '../pages/WeatherApp';
 
 const AppRouter = (props) => {
 
@@ -17,6 +18,9 @@ const AppRouter = (props) => {
       </Route>
       <Route path='/bankingApp'>
         <BankingApp/>
+      </Route>
+      <Route path='/weatherApp'>
+        <WeatherApp/>
       </Route>
       <Redirect to='/errorPage' />
     </Switch>
