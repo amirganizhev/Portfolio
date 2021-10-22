@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './styles/WeatherApp.module.css';
 
 import Heading2 from '../components/UI/headlines/Heading2';
@@ -6,28 +6,40 @@ import Heading3 from '../components/UI/headlines/Heading3';
 import SearchInput from '../components/UI/inputs/SearchInput';
 import SearchButton from '../components/UI/buttons/SearchButton';
 
-const WeatherApp = () => {
+const WeatherApp = (props) => {
 
-let city = "Moscow";
-let apiKey = "0489a7246fa2a2ee031b7a968af86b25";
+	const [weather, setWeather] = useState({
+		country: undefined,
+		city: undefined,
+		temperature: undefined,
+		likeTemperature: undefined,
+		pressure: undefined,
+		humidity: undefined,
+		windSpeed: undefined
+	})
 
-function weatherSearch() {
-	fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
-	/*Преобразует строку в массив*/
-	.then(function (response) {
-		return response.json();
-	})
-	/*Что выводить*/
-	.then(function (data) {
-		console.log(data);
-	})
-	/*Обработка ошибок*/
-	.catch(function () {
-		alert('Данного города нет в нашшем списке')
-	})
-}
+/*---------------------------------------------------------------------------------------*/
+	const weatherSearch = () => {
+		let city = "Moscow";
+		let apiKey = "4c913c448fa4638791f28b486b594b78";
+		fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function (data) {
+				setWeather({
+					country: data.sys.country,
+					city: data.name,
+					temperature: data.main.temp,
+					likeTemperature: data.main.feels_like,
+					pressure: data.main.pressure,
+					humidity: data.main.humidity,
+					windSpeed: data.wind.speed
+				})
+			})
+		}
 
-weatherSearch();
+		weatherSearch()
 /*---------------------------------------------------------------------------------------*/
 
   return (
@@ -40,15 +52,15 @@ weatherSearch();
         <SearchButton>Search</SearchButton>
       </form>
       <div className={classes.weatherBlock}>
-        <Heading3>Страна:</Heading3>
-        <Heading3>Город:</Heading3>
-        <Heading3>Температура:</Heading3>
-        <Heading3>Ощущается как:</Heading3>
-        <Heading3>Погода:</Heading3>
-        <Heading3>Иконка:</Heading3>
-        <Heading3>Давление:</Heading3>
-        <Heading3>Влажность:</Heading3>
-        <Heading3>Скорость ветра:</Heading3>
+        <Heading3>Страна: {weather.country}</Heading3>
+        <Heading3>Город: {weather.country}</Heading3>
+        <Heading3>Температура: {weather.country}</Heading3>
+        <Heading3>Ощущается как: {weather.country}</Heading3>
+				<Heading3>Иконка: {weather.country}</Heading3>
+        <Heading3>Погода: {weather.country}</Heading3>
+        <Heading3>Давление: {weather.country}</Heading3>
+        <Heading3>Влажность: {weather.country}</Heading3>
+        <Heading3>Скорость ветра: {weather.country}</Heading3>
       </div>
     </div>
   )
