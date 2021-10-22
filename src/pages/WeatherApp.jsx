@@ -18,10 +18,9 @@ const WeatherApp = (props) => {
 		windSpeed: undefined
 	})
 
-/*---------------------------------------------------------------------------------------*/
 	const weatherSearch = () => {
 		let city = "Moscow";
-		let apiKey = "4c913c448fa4638791f28b486b594b78";
+		let apiKey = "082ee0180fbddc936c5dbe74f38f0f87";
 		fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
 			.then(function (response) {
 				return response.json();
@@ -30,8 +29,9 @@ const WeatherApp = (props) => {
 				setWeather({
 					country: data.sys.country,
 					city: data.name,
-					temperature: data.main.temp,
-					likeTemperature: data.main.feels_like,
+					temperature: Math.round(data.main.temp - 273),
+					likeTemperature: Math.round(data.main.feels_like - 273),
+					weatherDescription: data.weather[0]['description'],
 					pressure: data.main.pressure,
 					humidity: data.main.humidity,
 					windSpeed: data.wind.speed
@@ -39,8 +39,7 @@ const WeatherApp = (props) => {
 			})
 		}
 
-		weatherSearch()
-/*---------------------------------------------------------------------------------------*/
+	weatherSearch()
 
   return (
     <div>
@@ -52,15 +51,14 @@ const WeatherApp = (props) => {
         <SearchButton>Search</SearchButton>
       </form>
       <div className={classes.weatherBlock}>
-        <Heading3>Страна: {weather.country}</Heading3>
-        <Heading3>Город: {weather.country}</Heading3>
-        <Heading3>Температура: {weather.country}</Heading3>
-        <Heading3>Ощущается как: {weather.country}</Heading3>
-				<Heading3>Иконка: {weather.country}</Heading3>
-        <Heading3>Погода: {weather.country}</Heading3>
-        <Heading3>Давление: {weather.country}</Heading3>
-        <Heading3>Влажность: {weather.country}</Heading3>
-        <Heading3>Скорость ветра: {weather.country}</Heading3>
+				<Heading3>Страна: {weather.country}</Heading3>
+				<Heading3>Город: {weather.city}</Heading3>
+				<Heading3>Температура: {weather.temperature} &deg;</Heading3>
+				<Heading3>Ощущается как: {weather.likeTemperature} &deg;</Heading3>
+				<Heading3>Погода: {weather.weatherDescription}</Heading3>
+				<Heading3>Давление: {weather.pressure}</Heading3>
+				<Heading3>Влажность: {weather.humidity}</Heading3>
+				<Heading3>Скорость ветра: {weather.windSpeed}</Heading3>
       </div>
     </div>
   )
