@@ -4,7 +4,7 @@ import classes from './styles/DeleteButton.module.css';
 const DeleteButton = (props) => {
 
   return (
-    <button className={classes.deleteButton}>
+    <button className={classes.deleteButton} {...props}>
       {props.children}
     </button>
   )

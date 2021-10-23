@@ -7,7 +7,7 @@ import AppRouter from './AppRouter';
 import Anchor from './UI/anchor/Anchor';
 import Heading1 from './UI/headlines/Heading1';
 
-const ProjectListMenu = (props) => {
+const ProjectListMenu = () => {
 
   return (
     <BrowserRouter>

@@ -4,7 +4,7 @@ import classes from './styles/Heading6.module.css';
 const Heading6 = (props) => {
 
   return (
-    <h6 className={classes.heading6}>
+    <h6 className={classes.heading6} {...props}>
       {props.children}
     </h6>
   )

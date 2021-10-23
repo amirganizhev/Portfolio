@@ -15,4 +15,13 @@
   margin-right: auto;
   margin-top: 25px;
   border: 1px solid #ffdc60;
+  display: flex;
+}
+
+.weatherBlock div {
+  margin: 30px;
+}
+
+.weer {
+  text-align: center;
 }

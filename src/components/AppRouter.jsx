@@ -6,7 +6,7 @@ import PortfolioDescription from '../pages/PortfolioDescription';
 import BankingApp from '../pages/BankingApp';
 import WeatherApp from '../pages/WeatherApp';
 
-const AppRouter = (props) => {
+const AppRouter = () => {
 
   return (
     <Switch>

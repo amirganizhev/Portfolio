@@ -4,7 +4,7 @@ import classes from './styles/Anchor.module.css';
 const Anchor = (props) => {
 
   return (
-    <span className={classes.anchor}>
+    <span className={classes.anchor} {...props}>
       {props.children}
     </span>
   )
