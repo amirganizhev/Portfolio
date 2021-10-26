@@ -1,35 +1,19 @@
 import React from 'react';
 import classes from './styles/BankingApp.module.css';
 
+import CreditTest from '../components/CreditTest';
+import ExchangeRate from '../components/ExchangeRate';
+
 import Heading2 from '../components/UI/headlines/Heading2';
 import Heading3 from '../components/UI/headlines/Heading3';
-import NormalText from '../components/UI/texts/NormalText';
 
 const BankingApp = () => {
 
   return (
     <div className={classes.bankingApp}>
-      <div className={classes.bankingAppHeading}>
-        <Heading2>Банковское приложение</Heading2>
-        <NormalText>Значимость этих проблем настолько очевидна, что дальнейшее
-        развитие различных форм деятельности обеспечивает широкому кругу
-        (специалистов) участие в формировании новых предложений. Равным образом
-        постоянный количественный рост и сфера нашей активности играет важную
-        роль в формировании системы обучения кадров, соответствует насущным
-        потребностям. Таким образом новая модель организационной деятельности
-        способствует подготовки и реализации систем массового участия. С другой
-        стороны укрепление и развитие структуры обеспечивает участие в
-        формировании систем массового участия. С другой стороны рамки и место
-        обучения кадров способствует подготовки и реализации модели развития.
-        Значимость этих проблем настолько очевидна, что дальнейшее развитие
-        различных форм деятельности обеспечивает широкому кругу (специалистов)
-        участие в формировании новых предложений. Товарищи! постоянное
-        информационно-пропагандистское обеспечение нашей деятельности позволяет
-        выполнять важные задания по разработке модели развития.</NormalText>
-      </div>
-      <div className={classes.bankingAppHeading}>
-        <Heading3>Актуальный курс валют</Heading3>
-      </div>
+      <Heading2 style={{textAlign: 'center'}}>Банковское приложение</Heading2>
+      <ExchangeRate />
+      <CreditTest />
     </div>
   )
 

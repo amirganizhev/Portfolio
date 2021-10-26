@@ -1,0 +1,11 @@
+.creditTest {
+  background-color: white;
+  width: 700px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  border: 1px solid #ffdc60;
+}
+
+.questions {}

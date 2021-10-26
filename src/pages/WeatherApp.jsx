@@ -40,6 +40,9 @@ const WeatherApp = (props) => {
 					windSpeed: data.wind.speed
 				})
 			})
+			.catch(function (err) {
+		     alert(err)
+	     })
 		}
 
 	const searchCityButton = (e) => {
