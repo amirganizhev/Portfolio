@@ -10,26 +10,26 @@ const forp = () => {
 
 const CreditTest = () => {
 
-  const [answer, setAnswer] = useState({answerBall: undefined})
+  const [answer, setAnswer] = useState({salary: undefined})
 
   const salary1 = useRef();
   const salary2 = useRef();
   const salary3 = useRef();
   const salary4 = useRef();
 
-  const fun = () => {
+  const result = () => {
     if (salary1.current.checked) {
-      setAnswer({answerBall: 1})
+      setAnswer({salary: 1})
     } else if (salary2.current.checked) {
-      setAnswer({answerBall: 2})
+      setAnswer({salary: 2})
     } else if (salary3.current.checked) {
-      setAnswer({answerBall: 3})
+      setAnswer({salary: 3})
     } else if (salary4.current.checked) {
-      setAnswer({answerBall: 4})
+      setAnswer({salary: 4})
     }
   }
 
-  console.log(answer.answerBall)
+  console.log(answer.salary)
 
   return (
     <div className={classes.creditTest}>
@@ -74,7 +74,7 @@ const CreditTest = () => {
 
       </div>
 
-      <AddButton onClick={fun}>onclick</AddButton>
+      <AddButton onClick={result}>onclick</AddButton>
     </div>
   )
 }
