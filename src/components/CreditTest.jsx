@@ -47,6 +47,11 @@ const CreditTest = () => {
   const restart = () => {
     questions.current.style = 'display: block';
     testingResult.current.style = 'display: none';
+    salaryVar = undefined;
+    familyVar = undefined;
+    workVar = undefined;
+    paymentVar = undefined;
+    creditVar = undefined;
   }
 
   return (
