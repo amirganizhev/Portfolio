@@ -1,7 +1,7 @@
 .creditTest {
   background-color: white;
   width: 700px;
-  height: 500px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
@@ -9,3 +9,5 @@
 }
 
 .questions {}
+
+.question {}

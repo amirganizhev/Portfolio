@@ -3,14 +3,14 @@ import classes from './styles/ErrorPage.module.css';
 
 import NormalText from '../components/UI/texts/NormalText';
 
-const BankingApp = () => {
+const ErrorPage = () => {
 
   return (
-    <div>
+    <div className={classes.errorPage}>
       <NormalText>ErrorPage</NormalText>
     </div>
   )
 
 }
 
-export default BankingApp;
+export default ErrorPage;

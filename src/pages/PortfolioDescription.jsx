@@ -8,7 +8,7 @@ import SearchButton from '../components/UI/buttons/SearchButton';
 const PortfolioDescription = () => {
 
   return (
-    <div>
+    <div className={classes.portfolioDescription}>
       <AddButton>Add</AddButton>
       <DeleteButton>Delete</DeleteButton>
       <SearchButton>Search</SearchButton>

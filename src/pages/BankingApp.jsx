@@ -5,7 +5,6 @@ import CreditTest from '../components/CreditTest';
 import ExchangeRate from '../components/ExchangeRate';
 
 import Heading2 from '../components/UI/headlines/Heading2';
-import Heading3 from '../components/UI/headlines/Heading3';
 
 const BankingApp = () => {
 
