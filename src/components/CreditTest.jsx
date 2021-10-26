@@ -1,27 +1,52 @@
-import React, {useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import classes from './styles/CreditTest.module.css';
 
 import Heading3 from './UI/headlines/Heading3';
 import Heading4 from './UI/headlines/Heading4';
 import AddButton from './UI/buttons/AddButton';
+import DeleteButton from './UI/buttons/DeleteButton';
 
 const CreditTest = () => {
 
-  const questions = useRef();
+  const [resultTesting, setResultTesting] = useState({
+    text: ''
+  })
 
-  let salaryVar;
-  let familyVar;
-  let workVar;
-  let paymentVar;
-  let creditVar;
+  const questions = useRef();
+  const testingResult = useRef();
+
+  let salaryVar = undefined;
+  let familyVar = undefined;
+  let workVar = undefined;
+  let paymentVar = undefined;
+  let creditVar = undefined;
 
   const result = () => {
-    console.log(salaryVar);
-    console.log(familyVar);
-    console.log(workVar);
-    console.log(paymentVar);
-    console.log(creditVar);
-    questions.current.style = 'display: none';
+    if (salaryVar === undefined) {
+      alert('Вы не ответили на 1-ый вопрос')
+    } else if (familyVar === undefined) {
+      alert('Вы не ответили на 2-ый вопрос')
+    } else if (workVar === undefined) {
+      alert('Вы не ответили на 3-ый вопрос')
+    } else if (paymentVar === undefined) {
+      alert('Вы не ответили на 4-ый вопрос')
+    } else if (creditVar === undefined) {
+      alert('Вы не ответили на 5-ый вопрос')
+    } else {
+      let sum = salaryVar + familyVar + workVar + paymentVar + creditVar;
+      questions.current.style = 'display: none';
+      testingResult.current.style = 'display: block';
+      if (sum <= 10) {
+        setResultTesting({text: 'Вам подойдет кредит на сумму 300.000 рублей на 5 лет под 12 % годовых'})
+      } else if (sum > 10) {
+        setResultTesting({text: 'Вам подойдет кредит на сумму 1.000.000 рублей на 10 лет под 5.5 % годовых'})
+      }
+    }
+  }
+
+  const restart = () => {
+    questions.current.style = 'display: block';
+    testingResult.current.style = 'display: none';
   }
 
   return (
@@ -251,9 +276,14 @@ const CreditTest = () => {
           <br/>
         </div>
 
+        <AddButton onClick={result}>Узнать результат</AddButton>
+
       </div>
 
-      <AddButton onClick={result}>onclick</AddButton>
+      <div className={classes.testingResult} ref={testingResult}>
+        {resultTesting.text}
+        <DeleteButton onClick={restart}>Пройти тест заново</DeleteButton>
+      </div>
 
     </div>
   )

@@ -11,3 +11,7 @@
 .questions {}
 
 .question {}
+
+.testingResult {
+  display: none;
+}
