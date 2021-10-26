@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef} from 'react';
 import classes from './styles/CreditTest.module.css';
 
 import Heading3 from './UI/headlines/Heading3';
@@ -6,13 +6,6 @@ import Heading4 from './UI/headlines/Heading4';
 import AddButton from './UI/buttons/AddButton';
 
 const CreditTest = () => {
-
-  const [answer, setAnswer] = useState({
-    salary: undefined,
-    family: undefined,
-    work: undefined,
-    payment: undefined
-  })
 
   const questions = useRef();
 
@@ -23,21 +16,13 @@ const CreditTest = () => {
   let creditVar;
 
   const result = () => {
-    setAnswer({
-      salary: salaryVar,
-      family: familyVar,
-      work: workVar,
-      payment: paymentVar,
-      credit: creditVar
-    })
+    console.log(salaryVar);
+    console.log(familyVar);
+    console.log(workVar);
+    console.log(paymentVar);
+    console.log(creditVar);
     questions.current.style = 'display: none';
   }
-
-  console.log(answer.salary);
-  console.log(answer.family);
-  console.log(answer.work);
-  console.log(answer.payment);
-  console.log(answer.credit);
 
   return (
     <div className={classes.creditTest}>
