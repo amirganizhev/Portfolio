@@ -7,8 +7,8 @@ import AddButton from './UI/buttons/AddButton';
 const CreditCalculator = () => {
 
   const [result, setResult] = useState({
-    refundableAmount: undefined,
-    monthlyPayment: undefined
+    refundableAmount: '...',
+    monthlyPayment: '...'
   })
 
   const creditAmountValue = useRef();
@@ -52,8 +52,8 @@ const CreditCalculator = () => {
         ref={interestRateValue}
       />
       <AddButton onClick={payment}>Расчитать</AddButton>
-      <p>Общая сумма к возврату: 857642 рублей</p>
-      <p>Ежемесячный платеж: 164 рублей</p>
+      <p>Общая сумма к возврату: {result.refundableAmount} рублей</p>
+      <p>Ежемесячный платеж: {result.monthlyPayment} рублей</p>
     </div>
   )
 }
