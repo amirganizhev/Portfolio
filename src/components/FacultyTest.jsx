@@ -1,12 +1,7 @@
 import React, {useState, useRef} from 'react';
 import classes from './styles/CreditTest.module.css';
 
-import Heading3 from './UI/headlines/Heading3';
-import Heading4 from './UI/headlines/Heading4';
-import AddButton from './UI/buttons/AddButton';
-import DeleteButton from './UI/buttons/DeleteButton';
-
-const CreditTest = () => {
+const FacultyTest = () => {
 
   const [resultTesting, setResultTesting] = useState({
     text: ''
@@ -57,12 +52,12 @@ const CreditTest = () => {
   return (
     <div className={classes.creditTest}>
 
-      <Heading3>Тест для подбора кредита</Heading3>
+      <h3>Тест для подбора кредита</h3>
 
-      <div className={classes.questions} ref={questions}>
+      <div ref={questions}>
 
-        <div className={classes.question}>
-          <Heading4>1) Какой ваш ежемесячный доход ?</Heading4>
+        <div>
+          <p>1) Какой ваш ежемесячный доход ?</p>
           <input
             type="radio"
             name="salary"
@@ -105,8 +100,8 @@ const CreditTest = () => {
           <br/>
         </div>
 
-        <div className={classes.question}>
-          <Heading4>2) Сколько человек в вашей семье ?</Heading4>
+        <div>
+          <p>2) Сколько человек в вашей семье ?</p>
           <input
             type="radio"
             name="family"
@@ -149,8 +144,8 @@ const CreditTest = () => {
           <br/>
         </div>
 
-        <div className={classes.question}>
-          <Heading4>3) Как долго вы работаете на на текущем месте работы ?</Heading4>
+        <div>
+          <p>3) Как долго вы работаете на на текущем месте работы ?</p>
           <input
             type="radio"
             name="work"
@@ -193,8 +188,8 @@ const CreditTest = () => {
           <br/>
         </div>
 
-        <div className={classes.question}>
-          <Heading4>4) Какой ежемесячный платеж вы готовы платить ?</Heading4>
+        <div>
+          <p>4) Какой ежемесячный платеж вы готовы платить ?</p>
           <input
             type="radio"
             name="payment"
@@ -237,8 +232,8 @@ const CreditTest = () => {
           <br/>
         </div>
 
-        <div className={classes.question}>
-          <Heading4>5) На какую сумму вы хотите оформить кредит ?</Heading4>
+        <div>
+          <p>5) На какую сумму вы хотите оформить кредит ?</p>
           <input
             type="radio"
             name="credit"
@@ -281,17 +276,17 @@ const CreditTest = () => {
           <br/>
         </div>
 
-        <AddButton onClick={result}>Узнать результат</AddButton>
+        <button onClick={result}>Узнать результат</button>
 
       </div>
 
       <div className={classes.testingResult} ref={testingResult}>
         {resultTesting.text}
-        <DeleteButton onClick={restart}>Пройти тест заново</DeleteButton>
+        <button onClick={restart}>Пройти тест заново</button>
       </div>
 
     </div>
   )
 }
 
-export default CreditTest;
+export default FacultyTest;

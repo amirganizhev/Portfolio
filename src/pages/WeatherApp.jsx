@@ -1,11 +1,6 @@
 import React, {useState, useRef} from 'react';
 import classes from './styles/WeatherApp.module.css';
 
-import Heading2 from '../components/UI/headlines/Heading2';
-import Heading3 from '../components/UI/headlines/Heading3';
-import SearchInput from '../components/UI/inputs/SearchInput';
-import SearchButton from '../components/UI/buttons/SearchButton';
-
 const WeatherApp = (props) => {
 
 	const [weather, setWeather] = useState({
@@ -69,27 +64,23 @@ const WeatherApp = (props) => {
 	}
 
   return (
-    <div>
-      <div className={classes.weatherAppHeading}>
-        <Heading2>Погодное приложение</Heading2>
+    <div className={classes.weatherApp}>
+      <div>
+        <h2>Погодное приложение</h2>
       </div>
-      <form className={classes.formSearchCity}>
-        <SearchInput ref={searchCityInput} />
-        <SearchButton onClick={searchCityButton}>Search</SearchButton>
+      <form>
+        <input type='text' ref={searchCityInput} />
+        <button onClick={searchCityButton}>Search</button>
       </form>
-      <div className={classes.weatherBlock}>
-				<div>
-					<Heading3>Страна: {weather.country}</Heading3>
-					<Heading3>Город: {weather.city}</Heading3>
-					<Heading3>Температура: {weather.temperature} &deg;</Heading3>
-					<Heading3>Ощущается как: {weather.likeTemperature} &deg;</Heading3>
-				</div>
-				<div>
-					<Heading3>Погода: {weather.weatherDescription}</Heading3>
-					<Heading3>Давление: {weather.pressure} бар</Heading3>
-					<Heading3>Влажность: {weather.humidity} %</Heading3>
-					<Heading3>Скорость ветра: {weather.windSpeed} м/с</Heading3>
-				</div>
+      <div>
+				<h3>Страна: {weather.country}</h3>
+				<h3>Город: {weather.city}</h3>
+				<h3>Температура: {weather.temperature} &deg;</h3>
+				<h3>Ощущается как: {weather.likeTemperature} &deg;</h3>
+				<h3>Погода: {weather.weatherDescription}</h3>
+				<h3>Давление: {weather.pressure} бар</h3>
+				<h3>Влажность: {weather.humidity} %</h3>
+				<h3>Скорость ветра: {weather.windSpeed} м/с</h3>
       </div>
     </div>
   )

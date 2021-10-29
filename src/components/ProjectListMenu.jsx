@@ -4,21 +4,16 @@ import classes from './styles/ProjectListMenu.module.css';
 
 import AppRouter from './AppRouter';
 
-import Anchor from './UI/anchor/Anchor';
-import Heading1 from './UI/headlines/Heading1';
-
 const ProjectListMenu = () => {
 
   return (
     <BrowserRouter>
       <div className={classes.projectListMenu}>
-        <div className={classes.projectListHeader}>
-          <Heading1>Список всех проектов</Heading1>
-        </div>
-        <div className={classes.linksProjects}>
-          <Link to='/portfolioDescription' className={classes.linkProject}><Anchor>Описание портфолио</Anchor></Link>
-          <Link to='/bankingApp' className={classes.linkProject}><Anchor>Банковское приложение</Anchor></Link>
-          <Link to='/weatherApp' className={classes.linkProject}><Anchor>Погодное приложение</Anchor></Link>
+        <h1>Список всех проектов</h1>
+        <div>
+          <Link to='/portfolioDescription' className={classes.linkProject}>Описание портфолио</Link>
+          <Link to='/harryPotter' className={classes.linkProject}>HarryPotter</Link>
+          <Link to='/weatherApp' className={classes.linkProject}>Погодное приложение</Link>
         </div>
       </div>
       <AppRouter />

@@ -3,7 +3,7 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 
 import ErrorPage from '../pages/ErrorPage';
 import PortfolioDescription from '../pages/PortfolioDescription';
-import BankingApp from '../pages/BankingApp';
+import HarryPotter from '../pages/HarryPotter';
 import WeatherApp from '../pages/WeatherApp';
 
 const AppRouter = () => {
@@ -16,8 +16,8 @@ const AppRouter = () => {
       <Route path='/portfolioDescription'>
         <PortfolioDescription/>
       </Route>
-      <Route path='/bankingApp'>
-        <BankingApp/>
+      <Route path='/harryPotter'>
+        <HarryPotter/>
       </Route>
       <Route path='/weatherApp'>
         <WeatherApp/>

@@ -1,9 +1,0 @@
-@font-face {
-    font-family: text-font;
-    src: url(../../fonts/text-font.ttf);
-}
-
-.normalText {
-  font-family: text-font;
-  font-size: 16px;
-}
