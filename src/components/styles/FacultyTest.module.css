@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Harry-Potter;
+    src: url(../fonts/Harry-Potter.ttf);
+}
+
+.facultyTest {
+  position: relative;
+	z-index: 2;
+  color: white;
+  font-family: Harry-Potter;
+  text-align: center;
+  font-size: 25px;
+	text-shadow: 1px 1px 7px black;
+}
+
+.testingResult {
+  display: none;
+}
+
+.resultImage {}

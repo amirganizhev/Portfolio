@@ -1,1 +1,12 @@
-.projectListMenu {}
+.projectListMenu {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+.projectListMenu a {
+  margin: 25px;
+  cursor: pointer;
+}

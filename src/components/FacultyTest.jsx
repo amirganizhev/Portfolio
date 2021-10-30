@@ -1,5 +1,10 @@
 import React, {useState, useRef} from 'react';
-import classes from './styles/CreditTest.module.css';
+import classes from './styles/FacultyTest.module.css';
+
+import hufflepuff from './images/hufflepuff.png';
+import ravenclaw from './images/ravenclaw.png';
+import gryffindor from './images/gryffindor.png';
+import slytherin from './images/slytherin.png';
 
 const FacultyTest = () => {
 
@@ -10,31 +15,54 @@ const FacultyTest = () => {
   const questions = useRef();
   const testingResult = useRef();
 
-  let salaryVar = undefined;
-  let familyVar = undefined;
-  let workVar = undefined;
-  let paymentVar = undefined;
-  let creditVar = undefined;
+  let doorScore;
+	let surpriseScore;
+	let weddingScore;
+	let wandScore;
+	let locationScore;
+	let personScore;
+	let teacherScore;
+	let spellScore;
+	let disciplineScore;
 
-  const result = () => {
-    if (salaryVar === undefined) {
+  const result = (e) => {
+    e.preventDefault();
+    if (doorScore === undefined) {
       alert('Вы не ответили на 1-ый вопрос')
-    } else if (familyVar === undefined) {
+    } else if (surpriseScore === undefined) {
       alert('Вы не ответили на 2-ый вопрос')
-    } else if (workVar === undefined) {
+    } else if (weddingScore === undefined) {
       alert('Вы не ответили на 3-ый вопрос')
-    } else if (paymentVar === undefined) {
+    } else if (wandScore === undefined) {
       alert('Вы не ответили на 4-ый вопрос')
-    } else if (creditVar === undefined) {
+    } else if (locationScore === undefined) {
       alert('Вы не ответили на 5-ый вопрос')
+    } else if (personScore === undefined) {
+      alert('Вы не ответили на 6-ый вопрос')
+    } else if (teacherScore === undefined) {
+      alert('Вы не ответили на 7-ый вопрос')
+    } else if (spellScore === undefined) {
+      alert('Вы не ответили на 8-ый вопрос')
+    } else if (disciplineScore === undefined) {
+      alert('Вы не ответили на 9-ый вопрос')
     } else {
-      let sum = salaryVar + familyVar + workVar + paymentVar + creditVar;
+      let sumScore = doorScore + surpriseScore + weddingScore + wandScore + locationScore + personScore + teacherScore + spellScore + disciplineScore;
       questions.current.style = 'display: none';
       testingResult.current.style = 'display: block';
-      if (sum <= 10) {
-        setResultTesting({text: 'Вам подойдет кредит на сумму 300.000 рублей на 5 лет под 12 % годовых'})
-      } else if (sum > 10) {
-        setResultTesting({text: 'Вам подойдет кредит на сумму 1.000.000 рублей на 10 лет под 5.5 % годовых'})
+      if (sumScore <= 11) {
+        setResultTesting({text: 'Пуффендуй'})
+        /*hufflepuff.current.src = './images/slytherin.png'*/
+      } else if (sumScore > 11 && sumScore <= 17) {
+        setResultTesting({text: 'Когтевран'})
+        /*ravenclaw.current.src = './images/ravenclaw.png'*/
+      } else if (sumScore > 17 && sumScore <= 25) {
+        setResultTesting({text: 'Гриффиндор'})
+        /*gryffindor.current.src = './images/slytherin.png'*/
+      } else if (sumScore > 25) {
+        setResultTesting({text: 'Слизерин'})
+        /*slytherin.current.src = './images/slytherin.png'*/
+      } else {
+        alert('Возникла какая то ошибка!')
       }
     }
   }
@@ -42,245 +70,171 @@ const FacultyTest = () => {
   const restart = () => {
     questions.current.style = 'display: block';
     testingResult.current.style = 'display: none';
-    salaryVar = undefined;
-    familyVar = undefined;
-    workVar = undefined;
-    paymentVar = undefined;
-    creditVar = undefined;
   }
 
   return (
-    <div className={classes.creditTest}>
+    <div className={classes.facultyTest}>
 
-      <h3>Тест для подбора кредита</h3>
+      <h1>Harry Potter</h1>
 
-      <div ref={questions}>
+      <h2>Пройди тест и узнай свой факультет в школе чародейства и волшебства Хогвартс</h2>
+
+      <form ref={questions}>
 
         <div>
-          <p>1) Какой ваш ежемесячный доход ?</p>
-          <input
-            type="radio"
-            name="salary"
-            id="salary-1"
-            onClick={() => {
-              salaryVar = 1;
-            }}
-          />
-          <label htmlFor="salary-1">От 20 до 40 тысяч рублей</label>
+          {/*.......................1 - вопрос.......................*/}
+          <p>1) В какую дверь б вы вошли ?</p>
+          <input  type="radio"  name="doorScore" id="doorScore-1" onClick={() => {doorScore = 3}}/>
+          <label htmlFor="doorScore-1">Обычная деревянная дверь без излишеств</label>
           <br/>
-          <input
-            type="radio"
-            name="salary"
-            id="salary-2"
-            onClick={() => {
-              salaryVar = 2;
-            }}
-          />
-          <label htmlFor="salary-2">От 40 до 60 тысяч рублей</label>
+          <input  type="radio"  name="doorScore" id="doorScore-2" onClick={() => {doorScore = 2}}/>
+          <label htmlFor="doorScore-2">Дверь из золота, с инскрутацией камнями</label>
           <br/>
-          <input
-            type="radio"
-            name="salary"
-            id="salary-3"
-            onClick={() => {
-              salaryVar = 3;
-            }}
-          />
-          <label htmlFor="salary-3">От 60 до 80 тысяч рублей</label>
+          <input  type="radio"  name="doorScore" id="doorScore-3" onClick={() => {doorScore = 1}}/>
+          <label htmlFor="doorScore-3">Дверь из растений покрытых колючками</label>
           <br/>
-          <input
-            type="radio"
-            name="salary"
-            id="salary-4"
-            onClick={() => {
-              salaryVar = 4;
-            }}
-          />
-          <label htmlFor="salary-4">От 80 и больше</label>
+          <input  type="radio"  name="doorScore" id="doorScore-4" onClick={() => {doorScore = 4}}/>
+          <label htmlFor="doorScore-4">Железная дверь, с небольшой ржавчиной</label>
           <br/>
         </div>
-
+        {/*.......................2 - вопрос.......................*/}
         <div>
-          <p>2) Сколько человек в вашей семье ?</p>
-          <input
-            type="radio"
-            name="family"
-            id="family-1"
-            onClick={() => {
-              familyVar = 1;
-            }}
-          />
-          <label htmlFor="family-1">От 1 до 4 человек</label>
+          <p>2) Какой подарок вы б предпочли ?</p>
+          <input  type="radio"  name="surpriseScore" id="surpriseScore-1" onClick={() => {surpriseScore = 2}}/>
+          <label htmlFor="surpriseScore-1">Бузинная палочка</label>
           <br/>
-          <input
-            type="radio"
-            name="family"
-            id="family-2"
-            onClick={() => {
-              familyVar = 2;
-            }}
-          />
-          <label htmlFor="family-2">От 4 до 6 человек</label>
+          <input  type="radio"  name="surpriseScore" id="surpriseScore-2" onClick={() => {surpriseScore = 1}}/>
+          <label htmlFor="surpriseScore-2">Мантия невидимка</label>
           <br/>
-          <input
-            type="radio"
-            name="family"
-            id="family-3"
-            onClick={() => {
-              familyVar = 3;
-            }}
-          />
-          <label htmlFor="family-3">От 6 до 8 человек</label>
+          <input  type="radio"  name="surpriseScore" id="surpriseScore-3" onClick={() => {surpriseScore = 3}}/>
+          <label htmlFor="surpriseScore-3">Философский камень</label>
           <br/>
-          <input
-            type="radio"
-            name="family"
-            id="family-4"
-            onClick={() => {
-              familyVar = 4;
-            }}
-          />
-          <label htmlFor="family-4">От 8 и больше человек</label>
+          <input  type="radio"  name="surpriseScore" id="surpriseScore-4" onClick={() => {surpriseScore = 4}}/>
+          <label htmlFor="surpriseScore-4">Птица феникс</label>
           <br/>
         </div>
-
+        {/*.......................3 - вопрос.......................*/}
         <div>
-          <p>3) Как долго вы работаете на на текущем месте работы ?</p>
-          <input
-            type="radio"
-            name="work"
-            id="work-1"
-            onClick={() => {
-              workVar = 1;
-            }}
-          />
-          <label htmlFor="work-1">От 0 до 6 месяцев</label>
+          <p>3) Кого б вы взяли в жены (вышли замуж) ?</p>
+          <input  type="radio"  name="weddingScore" id="weddingScore-1" onClick={() => {weddingScore = 1}}/>
+          <label htmlFor="weddingScore-1">Полумна Лавгут (Невилл Долгопупс)</label>
           <br/>
-          <input
-            type="radio"
-            name="work"
-            id="work-2"
-            onClick={() => {
-              workVar = 2;
-            }}
-          />
-          <label htmlFor="work-2">От 6 до 12 месяцев</label>
+          <input  type="radio"  name="weddingScore" id="weddingScore-2" onClick={() => {weddingScore = 4}}/>
+          <label htmlFor="weddingScore-2">Гермиона Гренджер (Гарри Поттер)</label>
           <br/>
-          <input
-            type="radio"
-            name="work"
-            id="work-3"
-            onClick={() => {
-              workVar = 3;
-            }}
-          />
-          <label htmlFor="work-3">От 1 до 3 лет</label>
+          <input  type="radio"  name="weddingScore" id="weddingScore-3" onClick={() => {weddingScore = 3}}/>
+          <label htmlFor="weddingScore-3">Минерва Макгонагалл (Аластор Грюм)</label>
           <br/>
-          <input
-            type="radio"
-            name="work"
-            id="work-4"
-            onClick={() => {
-              workVar = 4;
-            }}
-          />
-          <label htmlFor="work-4">От 3 и больше лет</label>
+          <input  type="radio"  name="weddingScore" id="weddingScore-4" onClick={() => {weddingScore = 2}}/>
+          <label htmlFor="weddingScore-4">Джинни Уизли (Драко Малфой)</label>
           <br/>
         </div>
-
+        {/*.......................4 - вопрос.......................*/}
         <div>
-          <p>4) Какой ежемесячный платеж вы готовы платить ?</p>
-          <input
-            type="radio"
-            name="payment"
-            id="payment-1"
-            onClick={() => {
-              paymentVar = 1;
-            }}
-          />
-          <label htmlFor="payment-1">От 10 до 20 тысяч рублей</label>
+          <p>4) Какую палочку вы б предпочли ?</p>
+          <input  type="radio"  name="wandScore" id="wandScore-1" onClick={() => {wandScore = 3}}/>
+          <label htmlFor="wandScore-1">Ядро: Волосы с Хвоста Единорога</label>
           <br/>
-          <input
-            type="radio"
-            name="payment"
-            id="payment-2"
-            onClick={() => {
-              paymentVar = 2;
-            }}
-          />
-          <label htmlFor="payment-2">От 20 до 30 тысяч рублей</label>
+          <input  type="radio"  name="wandScore" id="wandScore-2" onClick={() => {wandScore = 4}}/>
+          <label htmlFor="wandScore-2">Ядро: Рог Василиска</label>
           <br/>
-          <input
-            type="radio"
-            name="payment"
-            id="payment-3"
-            onClick={() => {
-              paymentVar = 3;
-            }}
-          />
-          <label htmlFor="payment-3">От 30 до 40 тысяч рублей</label>
+          <input  type="radio"  name="wandScore" id="wandScore-3" onClick={() => {wandScore = 2}}/>
+          <label htmlFor="wandScore-3">Ядро: Волосы Фестрала</label>
           <br/>
-          <input
-            type="radio"
-            name="payment"
-            id="payment-4"
-            onClick={() => {
-              paymentVar = 4;
-            }}
-          />
-          <label htmlFor="payment-4">От 40 тысяч рублей и больше</label>
+          <input  type="radio"  name="wandScore" id="wandScore-4" onClick={() => {wandScore = 1}}/>
+          <label htmlFor="wandScore-4">Ядро: Перо Феникса</label>
           <br/>
         </div>
-
+        {/*.......................5 - вопрос.......................*/}
         <div>
-          <p>5) На какую сумму вы хотите оформить кредит ?</p>
-          <input
-            type="radio"
-            name="credit"
-            id="credit-1"
-            onClick={() => {
-              creditVar = 1;
-            }}
-          />
-          <label htmlFor="credit-1">От 10.000 до 100.000 рублей</label>
+          <p>5) Где б вы остались жить ?</p>
+          <input  type="radio"  name="locationScore" id="locationScore-1" onClick={() => {locationScore = 2}}/>
+          <label htmlFor="locationScore-1">Годрикова Впадина</label>
           <br/>
-          <input
-            type="radio"
-            name="credit"
-            id="credit-2"
-            onClick={() => {
-              creditVar = 2;
-            }}
-          />
-          <label htmlFor="credit-2">От 100.000 до 300.000 рублей</label>
+          <input  type="radio"  name="locationScore" id="locationScore-2" onClick={() => {locationScore = 4}}/>
+          <label htmlFor="locationScore-2">Паучий тупик</label>
           <br/>
-          <input
-            type="radio"
-            name="credit"
-            id="credit-3"
-            onClick={() => {
-              creditVar = 3;
-            }}
-          />
-          <label htmlFor="credit-3">От 300.000 до 1.000.000 рублей</label>
+          <input  type="radio"  name="locationScore" id="locationScore-3" onClick={() => {locationScore = 3}}/>
+          <label htmlFor="locationScore-3">Литтл Уингинг</label>
           <br/>
-          <input
-            type="radio"
-            name="credit"
-            id="credit-4"
-            onClick={() => {
-              creditVar = 4;
-            }}
-          />
-          <label htmlFor="credit-4">От 1.000.000 и больше рублей</label>
+          <input  type="radio"  name="locationScore" id="locationScore-4" onClick={() => {locationScore = 1}}/>
+          <label htmlFor="locationScore-4">Косой Переулок</label>
+          <br/>
+        </div>
+        {/*.......................6 - вопрос.......................*/}
+        <div>
+          <p>6) Какому персонажу вы эмпанируете ?</p>
+          <input  type="radio"  name="personScore" id="personScore-1" onClick={() => {personScore = 2}}/>
+          <label htmlFor="personScore-1">Альбус Дамблдор</label>
+          <br/>
+          <input  type="radio"  name="personScore" id="personScore-2" onClick={() => {personScore = 3}}/>
+          <label htmlFor="personScore-2">Северус Снегг</label>
+          <br/>
+          <input  type="radio"  name="personScore" id="personScore-3" onClick={() => {personScore = 1}}/>
+          <label htmlFor="personScore-3">Том Реддл</label>
+          <br/>
+          <input  type="radio"  name="personScore" id="personScore-4" onClick={() => {personScore = 4}}/>
+          <label htmlFor="personScore-4">Салазар Слизерин</label>
+          <br/>
+        </div>
+        {/*.......................7 - вопрос.......................*/}
+        <div>
+          <p>7) Ваш любимый преподаватель в Хогвартсе ?</p>
+          <input  type="radio"  name="teacherScore" id="teacherScore-1" onClick={() => {teacherScore = 1}}/>
+          <label htmlFor="teacherScore-1">Минерва Макгонагалл</label>
+          <br/>
+          <input  type="radio"  name="teacherScore" id="teacherScore-2" onClick={() => {teacherScore = 3}}/>
+          <label htmlFor="teacherScore-2">Северус Снегг</label>
+          <br/>
+          <input  type="radio"  name="teacherScore" id="teacherScore-3" onClick={() => {teacherScore = 4}}/>
+          <label htmlFor="teacherScore-3">Аластор Грюм (Барти Крауч-младший)</label>
+          <br/>
+          <input  type="radio"  name="teacherScore" id="teacherScore-4" onClick={() => {teacherScore = 2}}/>
+          <label htmlFor="teacherScore-4">Гораций Слизнорт</label>
+          <br/>
+        </div>
+        {/*.......................8 - вопрос.......................*/}
+        <div>
+          <p>8) Ваше любимое боевое заклинание ?</p>
+          <input  type="radio"  name="spellScore" id="spellScore-1" onClick={() => {spellScore = 1}}/>
+          <label htmlFor="spellScore-1">Авада Кедавра</label>
+          <br/>
+          <input  type="radio"  name="spellScore" id="spellScore-2" onClick={() => {spellScore = 4}}/>
+          <label htmlFor="spellScore-2">Сектумсемпра</label>
+          <br/>
+          <input  type="radio"  name="spellScore" id="spellScore-3" onClick={() => {spellScore = 3}}/>
+          <label htmlFor="spellScore-3">Остолбеней</label>
+          <br/>
+          <input  type="radio"  name="spellScore" id="spellScore-4" onClick={() => {spellScore = 2}}/>
+          <label htmlFor="spellScore-4">Экспеллиармус</label>
+          <br/>
+        </div>
+        {/*.......................9 - вопрос.......................*/}
+        <div>
+          <p>9) Ваша любимая дисциплина Хогвартса ?</p>
+          <input  type="radio"  name="disciplineScore" id="disciplineScore-1" onClick={() => {disciplineScore = 4}}/>
+          <label htmlFor="disciplineScore-1">Защита от Тёмных искусств</label>
+          <br/>
+          <input  type="radio"  name="disciplineScore" id="disciplineScore-2" onClick={() => {disciplineScore = 1}}/>
+          <label htmlFor="disciplineScore-2">История магии</label>
+          <br/>
+          <input  type="radio"  name="disciplineScore" id="disciplineScore-3" onClick={() => {disciplineScore = 3}}/>
+          <label htmlFor="disciplineScore-3">Зельеварение</label>
+          <br/>
+          <input  type="radio"  name="disciplineScore" id="disciplineScore-4" onClick={() => {disciplineScore = 2}}/>
+          <label htmlFor="disciplineScore-4">Трансфигурация</label>
           <br/>
         </div>
 
         <button onClick={result}>Узнать результат</button>
 
-      </div>
+      </form>
 
       <div className={classes.testingResult} ref={testingResult}>
+        <img className={classes.resultImage} src={hufflepuff} alt="hufflepuff" />
+        <img className={classes.resultImage} src={ravenclaw} alt="ravenclaw" />
+        <img className={classes.resultImage} src={gryffindor} alt="gryffindor" />
+        <img className={classes.resultImage} src={slytherin} alt="slytherin" />
         {resultTesting.text}
         <button onClick={restart}>Пройти тест заново</button>
       </div>

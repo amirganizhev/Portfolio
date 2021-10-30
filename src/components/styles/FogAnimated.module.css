@@ -1,0 +1,77 @@
+.fogAnimated {
+  position: fixed;
+	top: 0px;
+	animation-name: fog-animation;
+	animation-duration: 7s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	opacity: 0.7;
+	z-index: 1;
+	pointer-events: none;
+}
+
+@keyframes fog-animation {
+	from {
+		right: 5px;
+	}
+	5% {
+		right: 15px;
+	}
+	10% {
+		right: 25px;
+	}
+	15% {
+		right: 35px;
+	}
+	20% {
+		right: 45px;
+	}
+	25% {
+		right: 55px;
+	}
+	30% {
+		right: 65px;
+	}
+	35% {
+		right: 75px;
+	}
+	40% {
+		right: 85px;
+	}
+	45% {
+		right: 95px;
+	}
+	50% {
+		right: 85px;
+	}
+	55% {
+		right: 75px;
+	}
+	60% {
+		right: 65px;
+	}
+	65% {
+		right: 55px;
+	}
+	70% {
+		right: 45px;
+	}
+	75% {
+		right: 35px;
+	}
+	80% {
+		right: 25px;
+	}
+	85% {
+		right: 15px;
+	}
+	90% {
+		right: 5px;
+	}
+	95% {
+		right: 0px;
+	}
+	to {
+		right: 5px;
+	}
+}

@@ -2,13 +2,14 @@ import React from 'react';
 import classes from './styles/HarryPotter.module.css';
 
 import FacultyTest from '../components/FacultyTest';
+import FogAnimated from '../components/FogAnimated';
 
 const HarryPotter = () => {
 
   return (
     <div className={classes.harryPotter}>
-      <h2>HarryPotter</h2>
       <FacultyTest />
+      <FogAnimated />
     </div>
   )
 
