@@ -14,6 +14,7 @@ const ProjectListMenu = () => {
           <Link to='/portfolioDescription' className={classes.linkProject}>Описание портфолио</Link>
           <Link to='/harryPotter' className={classes.linkProject}>HarryPotter</Link>
           <Link to='/weatherApp' className={classes.linkProject}>Погодное приложение</Link>
+          <Link to='/creditCalculator' className={classes.linkProject}>CreditCalculator</Link>
         </div>
       </div>
       <AppRouter />

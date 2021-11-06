@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react';
 import classes from './styles/WeatherApp.module.css';
 
-const WeatherApp = (props) => {
+const WeatherApp = () => {
 
 	const [weather, setWeather] = useState({
 		country: '...',

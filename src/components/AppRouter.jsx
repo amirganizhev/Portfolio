@@ -5,6 +5,7 @@ import ErrorPage from '../pages/ErrorPage';
 import PortfolioDescription from '../pages/PortfolioDescription';
 import HarryPotter from '../pages/HarryPotter';
 import WeatherApp from '../pages/WeatherApp';
+import CreditCalculator from '../pages/CreditCalculator';
 
 const AppRouter = () => {
 
@@ -14,13 +15,16 @@ const AppRouter = () => {
         <ErrorPage />
       </Route>
       <Route path='/portfolioDescription'>
-        <PortfolioDescription/>
+        <PortfolioDescription />
       </Route>
       <Route path='/harryPotter'>
-        <HarryPotter/>
+        <HarryPotter />
       </Route>
       <Route path='/weatherApp'>
-        <WeatherApp/>
+        <WeatherApp />
+      </Route>
+      <Route path='/creditCalculator'>
+        <CreditCalculator />
       </Route>
       <Redirect to='/errorPage' />
     </Switch>
