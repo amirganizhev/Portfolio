@@ -15,12 +15,16 @@ const WeatherApp = (props) => {
 	})
 
 	const searchCityInput = useRef();
+	const weatherInstruction = useRef();
+	const weatherInfo = useRef();
 
 	let city;
 
 	const searchCityButton = (e) => {
 		e.preventDefault();
 		city = searchCityInput.current.value;
+		weatherInstruction.current.style = 'display: none';
+		weatherInfo.current.style = 'display: block';
 		const apiKey = "4c913c448fa4638791f28b486b594b78";
 		fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
 			.then(function (response) {
@@ -39,7 +43,7 @@ const WeatherApp = (props) => {
 				})
 			})
 			.catch(function () {
-				alert('Данного города нет в нашшем списке')
+				alert('Данного города нет в нашем списке')
 			})
 			searchCityInput.current.value = '';
 	}
@@ -54,7 +58,14 @@ const WeatherApp = (props) => {
         <button onClick={searchCityButton} className={classes.searchCityButton}>Найти город</button>
       </form>
 
-      <div className={classes.weatherInfo}>
+			<div className={classes.weatherInstruction} ref={weatherInstruction}>
+				Введите название города в форму выше, и приложение выдаст вам результат
+				о названии страны города, сам город, температуре и ее восприятии в градусах
+				цельсия, описании погоды (туман, дождь, чистое небо и т.д), давлении в бар,
+				влажности в процентах и скорости ветра в метрах в секунду
+			</div>
+
+      <div className={classes.weatherInfo} ref={weatherInfo}>
 				<div>Страна: {weather.country}</div>
 				<div>Город: {weather.city}</div>
 				<div>Температура: {weather.temperature} &deg;</div>
