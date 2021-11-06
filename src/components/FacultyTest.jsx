@@ -1,10 +1,10 @@
 import React, {useState, useRef} from 'react';
 import classes from './styles/FacultyTest.module.css';
 
-import hufflepuff from './images/hufflepuff.png';
-import ravenclaw from './images/ravenclaw.png';
-import gryffindor from './images/gryffindor.png';
-import slytherin from './images/slytherin.png';
+import hufflepuff from '../images/hufflepuff.png';
+import ravenclaw from '../images/ravenclaw.png';
+import gryffindor from '../images/gryffindor.png';
+import slytherin from '../images/slytherin.png';
 
 const FacultyTest = () => {
 

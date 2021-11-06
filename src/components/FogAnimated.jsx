@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './styles/FogAnimated.module.css';
 
-import fog from'./images/fog.png';
+import fog from'../images/fog.png';
 
 const FogAnimated = () => {
 

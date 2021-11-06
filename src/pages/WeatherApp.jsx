@@ -4,41 +4,19 @@ import classes from './styles/WeatherApp.module.css';
 const WeatherApp = (props) => {
 
 	const [weather, setWeather] = useState({
-		country: undefined,
-		city: undefined,
-		temperature: undefined,
-		likeTemperature: undefined,
-		pressure: undefined,
-		humidity: undefined,
-		windSpeed: undefined
+		country: '...',
+		city: '...',
+		temperature: '...',
+		likeTemperature: '...',
+		weatherDescription: '...',
+		pressure: '...',
+		humidity: '...',
+		windSpeed: '...'
 	})
 
 	const searchCityInput = useRef();
 
-	let city = "Moscow";
-
-	window.onload = () => {
-		const apiKey = "0489a7246fa2a2ee031b7a968af86b25";
-		fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
-			.then(function (response) {
-				return response.json();
-			})
-			.then(function (data) {
-				setWeather({
-					country: data.sys.country,
-					city: data.name,
-					temperature: Math.round(data.main.temp - 273),
-					likeTemperature: Math.round(data.main.feels_like - 273),
-					weatherDescription: data.weather[0]['description'],
-					pressure: data.main.pressure,
-					humidity: data.main.humidity,
-					windSpeed: data.wind.speed
-				})
-			})
-			.catch(function (err) {
-		     alert(err)
-	     })
-		}
+	let city;
 
 	const searchCityButton = (e) => {
 		e.preventDefault();
@@ -60,28 +38,33 @@ const WeatherApp = (props) => {
 					windSpeed: data.wind.speed
 				})
 			})
+			.catch(function () {
+				alert('Данного города нет в нашшем списке')
+			})
 			searchCityInput.current.value = '';
 	}
 
   return (
     <div className={classes.weatherApp}>
-      <div>
-        <h2>Погодное приложение</h2>
-      </div>
-      <form>
-        <input type='text' ref={searchCityInput} />
-        <button onClick={searchCityButton}>Search</button>
+
+      <h1 className={classes.weatherAppHeader}>Погодное приложение</h1>
+
+      <form className={classes.weatherForm}>
+        <input type='text' id='searchCityInput' ref={searchCityInput} className={classes.searchCityInput} />
+        <button onClick={searchCityButton} className={classes.searchCityButton}>Найти город</button>
       </form>
-      <div>
-				<h3>Страна: {weather.country}</h3>
-				<h3>Город: {weather.city}</h3>
-				<h3>Температура: {weather.temperature} &deg;</h3>
-				<h3>Ощущается как: {weather.likeTemperature} &deg;</h3>
-				<h3>Погода: {weather.weatherDescription}</h3>
-				<h3>Давление: {weather.pressure} бар</h3>
-				<h3>Влажность: {weather.humidity} %</h3>
-				<h3>Скорость ветра: {weather.windSpeed} м/с</h3>
+
+      <div className={classes.weatherInfo}>
+				<div>Страна: {weather.country}</div>
+				<div>Город: {weather.city}</div>
+				<div>Температура: {weather.temperature} &deg;</div>
+				<div>Ощущается как: {weather.likeTemperature} &deg;</div>
+				<div>Описание: {weather.weatherDescription}</div>
+				<div>Давление: {weather.pressure} бар</div>
+				<div>Влажность: {weather.humidity} %</div>
+				<div>Скорость ветра: {weather.windSpeed} м/с</div>
       </div>
+
     </div>
   )
 
