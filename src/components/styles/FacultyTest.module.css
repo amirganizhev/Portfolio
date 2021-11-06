@@ -13,8 +13,42 @@
 	text-shadow: 1px 1px 7px black;
 }
 
-.testingResult {
+.resultButton {
+  font-family: Harry-Potter;
+  font-size: 35px;
+  background-color: rgb(254,252,175);
+  border: none;
+  margin: 50px;
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  box-shadow: 1px 1px 7px black;
+}
+
+.testingResultHufflepuff {
   display: none;
 }
 
-.resultImage {}
+.testingResultRavenclaw {
+  display: none;
+}
+
+.testingResultGryffindor {
+  display: none;
+}
+
+.testingResultSlytherin {
+  display: none;
+}
+
+.restartButton {
+  font-family: Harry-Potter;
+  font-size: 35px;
+  background-color: rgb(254,252,175);
+  border: none;
+  margin: 50px;
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  box-shadow: 1px 1px 7px black;
+}

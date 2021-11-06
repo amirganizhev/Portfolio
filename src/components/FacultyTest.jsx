@@ -13,7 +13,10 @@ const FacultyTest = () => {
   })
 
   const questions = useRef();
-  const testingResult = useRef();
+  const testingResultHufflepuff = useRef();
+  const testingResultRavenclaw = useRef();
+  const testingResultGryffindor = useRef();
+  const testingResultSlytherin = useRef();
 
   let doorScore;
 	let surpriseScore;
@@ -48,19 +51,18 @@ const FacultyTest = () => {
     } else {
       let sumScore = doorScore + surpriseScore + weddingScore + wandScore + locationScore + personScore + teacherScore + spellScore + disciplineScore;
       questions.current.style = 'display: none';
-      testingResult.current.style = 'display: block';
       if (sumScore <= 11) {
         setResultTesting({text: 'Пуффендуй'})
-        /*hufflepuff.current.src = './images/slytherin.png'*/
+        testingResultHufflepuff.current.style = 'display: block';
       } else if (sumScore > 11 && sumScore <= 17) {
         setResultTesting({text: 'Когтевран'})
-        /*ravenclaw.current.src = './images/ravenclaw.png'*/
+        testingResultRavenclaw.current.style = 'display: block';
       } else if (sumScore > 17 && sumScore <= 25) {
         setResultTesting({text: 'Гриффиндор'})
-        /*gryffindor.current.src = './images/slytherin.png'*/
+        testingResultGryffindor.current.style = 'display: block';
       } else if (sumScore > 25) {
         setResultTesting({text: 'Слизерин'})
-        /*slytherin.current.src = './images/slytherin.png'*/
+        testingResultSlytherin.current.style = 'display: block';
       } else {
         alert('Возникла какая то ошибка!')
       }
@@ -68,8 +70,7 @@ const FacultyTest = () => {
   }
 
   const restart = () => {
-    questions.current.style = 'display: block';
-    testingResult.current.style = 'display: none';
+    window.location.reload();
   }
 
   return (
@@ -82,7 +83,7 @@ const FacultyTest = () => {
       <form ref={questions}>
 
         <div>
-          {/*.......................1 - вопрос.......................*/}
+
           <p>1) В какую дверь б вы вошли ?</p>
           <input  type="radio"  name="doorScore" id="doorScore-1" onClick={() => {doorScore = 3}}/>
           <label htmlFor="doorScore-1">Обычная деревянная дверь без излишеств</label>
@@ -97,7 +98,7 @@ const FacultyTest = () => {
           <label htmlFor="doorScore-4">Железная дверь, с небольшой ржавчиной</label>
           <br/>
         </div>
-        {/*.......................2 - вопрос.......................*/}
+
         <div>
           <p>2) Какой подарок вы б предпочли ?</p>
           <input  type="radio"  name="surpriseScore" id="surpriseScore-1" onClick={() => {surpriseScore = 2}}/>
@@ -113,7 +114,7 @@ const FacultyTest = () => {
           <label htmlFor="surpriseScore-4">Птица феникс</label>
           <br/>
         </div>
-        {/*.......................3 - вопрос.......................*/}
+
         <div>
           <p>3) Кого б вы взяли в жены (вышли замуж) ?</p>
           <input  type="radio"  name="weddingScore" id="weddingScore-1" onClick={() => {weddingScore = 1}}/>
@@ -129,7 +130,7 @@ const FacultyTest = () => {
           <label htmlFor="weddingScore-4">Джинни Уизли (Драко Малфой)</label>
           <br/>
         </div>
-        {/*.......................4 - вопрос.......................*/}
+
         <div>
           <p>4) Какую палочку вы б предпочли ?</p>
           <input  type="radio"  name="wandScore" id="wandScore-1" onClick={() => {wandScore = 3}}/>
@@ -145,7 +146,7 @@ const FacultyTest = () => {
           <label htmlFor="wandScore-4">Ядро: Перо Феникса</label>
           <br/>
         </div>
-        {/*.......................5 - вопрос.......................*/}
+
         <div>
           <p>5) Где б вы остались жить ?</p>
           <input  type="radio"  name="locationScore" id="locationScore-1" onClick={() => {locationScore = 2}}/>
@@ -161,7 +162,7 @@ const FacultyTest = () => {
           <label htmlFor="locationScore-4">Косой Переулок</label>
           <br/>
         </div>
-        {/*.......................6 - вопрос.......................*/}
+
         <div>
           <p>6) Какому персонажу вы эмпанируете ?</p>
           <input  type="radio"  name="personScore" id="personScore-1" onClick={() => {personScore = 2}}/>
@@ -177,7 +178,7 @@ const FacultyTest = () => {
           <label htmlFor="personScore-4">Салазар Слизерин</label>
           <br/>
         </div>
-        {/*.......................7 - вопрос.......................*/}
+
         <div>
           <p>7) Ваш любимый преподаватель в Хогвартсе ?</p>
           <input  type="radio"  name="teacherScore" id="teacherScore-1" onClick={() => {teacherScore = 1}}/>
@@ -193,7 +194,7 @@ const FacultyTest = () => {
           <label htmlFor="teacherScore-4">Гораций Слизнорт</label>
           <br/>
         </div>
-        {/*.......................8 - вопрос.......................*/}
+
         <div>
           <p>8) Ваше любимое боевое заклинание ?</p>
           <input  type="radio"  name="spellScore" id="spellScore-1" onClick={() => {spellScore = 1}}/>
@@ -209,7 +210,7 @@ const FacultyTest = () => {
           <label htmlFor="spellScore-4">Экспеллиармус</label>
           <br/>
         </div>
-        {/*.......................9 - вопрос.......................*/}
+
         <div>
           <p>9) Ваша любимая дисциплина Хогвартса ?</p>
           <input  type="radio"  name="disciplineScore" id="disciplineScore-1" onClick={() => {disciplineScore = 4}}/>
@@ -226,17 +227,36 @@ const FacultyTest = () => {
           <br/>
         </div>
 
-        <button onClick={result}>Узнать результат</button>
+        <button className={classes.resultButton} onClick={result}>Узнать результат</button>
 
       </form>
 
-      <div className={classes.testingResult} ref={testingResult}>
+      <div className={classes.testingResultHufflepuff} ref={testingResultHufflepuff}>
+        <h1>{resultTesting.text}</h1>
         <img className={classes.resultImage} src={hufflepuff} alt="hufflepuff" />
+        <br/>
+        <button className={classes.restartButton} onClick={restart}>Пройти тест заново</button>
+      </div>
+
+      <div className={classes.testingResultRavenclaw} ref={testingResultRavenclaw}>
+        <h1>{resultTesting.text}</h1>
         <img className={classes.resultImage} src={ravenclaw} alt="ravenclaw" />
+        <br/>
+        <button className={classes.restartButton} onClick={restart}>Пройти тест заново</button>
+      </div>
+
+      <div className={classes.testingResultGryffindor} ref={testingResultGryffindor}>
+        <h1>{resultTesting.text}</h1>
         <img className={classes.resultImage} src={gryffindor} alt="gryffindor" />
+        <br/>
+        <button className={classes.restartButton} onClick={restart}>Пройти тест заново</button>
+      </div>
+
+      <div className={classes.testingResultSlytherin} ref={testingResultSlytherin}>
+        <h1>{resultTesting.text}</h1>
         <img className={classes.resultImage} src={slytherin} alt="slytherin" />
-        {resultTesting.text}
-        <button onClick={restart}>Пройти тест заново</button>
+        <br/>
+        <button className={classes.restartButton} onClick={restart}>Пройти тест заново</button>
       </div>
 
     </div>
